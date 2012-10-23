@@ -1,0 +1,19 @@
+<mt:ArchiveTitle setvar="page_title">
+<mt:SetVarBlock name="pagination_base_url"><mt:ArchiveLink></mt:SetVarBlock>
+
+<mt:HomePageLastn setvar="home_page_lastn">
+<mt:CategoryCount setvar="total">
+
+<mt:SetVarBlock name="main_content">
+
+    <header class="page-header">
+      <h1 class="page-title"><mt:ArchiveTitle></h1>
+    </header>
+    <mt:Entries lastn="$home_page_lastn" offset="$pagination_offset">
+      <mt:Include module="Post Summary - Story">
+    </mt:Entries>
+    <mt:Include module="Pagination" lastn="$home_page_lastn" total="$total">
+
+</mt:SetVarBlock>
+
+<mt:Include module="Master">

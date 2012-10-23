@@ -1,0 +1,785 @@
+name: Bootstrap Theme
+id: BootstrapTheme
+key: BootstrapTheme
+version: 1.0.0
+static_version: 3
+blog_preferences:
+    bootstrap_config:
+        label: "Default Settings for Bootstrap Theme"
+        description: "Preferences and plugins settings for the Bootstrap Theme."
+        order: 100
+        plugin_data:
+            FastSearch:
+                enabled: on
+            pagination:
+                caching_enabled: on
+        preferences:
+            allow_pings: off
+            allow_comments: off
+            file_extension: 'html'
+
+template_sets:
+    bootstrap:
+        blog_preferences: bootstrap_config
+        base_path: 'templates/bootstrap'
+        label: 'Bootstrap Theme'
+        author_name: 'Mark Carey'
+        author_link: 'http://mt-hacks.com'
+        theme_link: 'http://mt-hacks.com/bootstraptheme.html'
+        doc_link: ''
+        description: "<p>Bootstrap Theme for Movable Type and Melody.</p>"
+        version: '0.5.0'
+        paypal_email: 'payme@markcarey.com' 
+        thumbnail: 'bootstrap-thumbnail.png'
+        preview: 'bootstrap-preview.png'
+        about_designer: ''
+        documentation: ''
+        options:
+            fieldsets:
+                colors:
+                    label: 'Colors'
+                    order: 50
+                header:
+                    label: 'Logo'
+                    order: 100
+                menu:
+                    label: 'Menu'
+                    order: 150
+                sidebar:
+                    label: 'Sidebar Widgets'
+                    order: 175
+                footer:
+                    label: 'Footer Widgets'
+                    order: 180
+                home_page:
+                    label: 'Home Page'
+                    order: 200
+                advertising:
+                    label: 'Advertising'
+                    order: 300
+                social:
+                    label: 'Social Sharing'
+                    order: 500
+                site:
+                    label: 'Site-wide Stats and Meta Tags'
+                    order: 999
+                contact_page:
+                    label: 'Contact Us Page'
+                    order: 400
+                login:
+                    label: 'Login and Registration'
+                    order: 600
+                htaccess:
+                    label: 'htaccess (Advanced)'
+                    order: 1000
+                advanced:
+                    label: 'Advanced'
+                    order: 1100
+            header_name_and_logo:
+                order: 990
+                label: 'Site Headline and Logo'
+                hint: 'Options for the main headline or logo for the site.'
+                type: separator
+                fieldset: header
+            header_logo:
+                order: 1000
+                label: 'Site Logo Image'
+                hint: 'A small logo image, recommended max width of 200px and a height of 40px'
+                type: file
+                fieldset: header
+                tag: SiteLogoImage
+            header_headline:
+                order: 1010
+                label: 'Site Headline'
+                hint: 'If no logo has been chosen, the Site Headline will appear in the top left in block letters. A short headline is recommended for optimal display. If blank, the Blog name will be used.'
+                type: text
+                fieldset: header
+                tag: SiteHeadline
+            header_image:
+                order: 1020
+                label: 'Header Image'
+                hint: 'Recommended 1170px width and max height of 250px'
+                type: file
+                fieldset: header
+                tag: SiteHeaderImage
+            menu:
+                order: 1000
+                label: 'Top Menu'
+                hint: 'Options for the displaying and linking of the top menu. To omit a menu item, leave the link text blank.'
+                type: separator
+                fieldset: menu
+            menu_color:
+                order: 1005
+                label: 'Menu Bar Color'
+                hint: 'Either light or dark.'
+                type: select
+                default: 'Dark'
+                values: Dark,Light
+                tag: MenuColor
+                fieldset: menu
+            menu_home:
+                order: 1010
+                label: 'Home Page Link'
+                hint: 'This menu item always links to the home page.'
+                type: separator
+                fieldset: menu
+            menu_home_text:
+                order: 1020
+                label: 'Link Text'
+                hint: 'Text to be used for the home page menu link.'
+                type: text
+                default: 'Home'
+                tag: MenuHomeText
+                fieldset: menu
+            menu_archives:
+                order: 1030
+                label: 'Archives Link'
+                hint: 'This menu item links to the Archives which provides access to older entries.'
+                type: separator
+                fieldset: menu
+            menu_archives_text:
+                order: 1040
+                label: 'Link Text'
+                hint: 'Text to be used for the archives menu link.'
+                type: text
+                default: 'Archives'
+                tag: MenuArchivesText
+                fieldset: menu
+            menu_archives_url:
+                order: 1050
+                label: 'URL'
+                hint: '(Optional) If blank this menu item will link to the Archives template.'
+                type: text
+                default: ''
+                tag: MenuArchivesURL
+                fieldset: menu
+            menu_archives_sub:
+                order: 1060
+                label: 'Sub-Menu Links'
+                hint: '(Optional) If desired, enter links to be used in a rollover sub-menu.'
+                type: link-group
+                tag: MenuArchivesSubMenu
+                fieldset: menu
+            menu_categories:
+                order: 1070
+                label: 'Categories Link'
+                hint: 'This menu item links to a Categories page and provides dropdown links to specific categories.'
+                type: separator
+                fieldset: menu
+            menu_categories_text:
+                order: 1080
+                label: 'Link Text'
+                hint: 'Text to be used for the categories menu link.'
+                type: text
+                default: 'Categories'
+                tag: MenuCategoriesText
+                fieldset: menu
+            menu_categories_url:
+                order: 1090
+                label: 'URL'
+                hint: '(Optional) If blank this menu item will link to the Categories template.'
+                type: text
+                default: ''
+                tag: MenuCategoriesURL
+                fieldset: menu
+            menu_categories_sub_type:
+                order: 2000
+                label: 'Sub-Menu'
+                hint: 'Choose whether to show a sub-menu of category links.'
+                type: select
+                default: 'Only Top-Level Categories'
+                values: No Sub-Menu,All Categories,Only Top-Level Categories,Only Categories Selected Below
+                tag: MenuCategoriesSubMenuType
+                fieldset: menu
+            menu_categories_sub_list:
+                order: 2010
+                label: 'Categories in Sub-Menu'
+                hint: '(Optional) Select the Categories that you want to include in the sub-menu. Note that to use this option you must choose the 'Only Categories Selected Below' option above.'
+                type: category_list
+                show_children: 1
+                tag: MenuCategoriesList
+                fieldset: menu
+            menu_tags:
+                order: 2020
+                label: 'Tags Link'
+                hint: 'This menu item links to a Tags page and provides dropdown links to specific tags.'
+                type: separator
+                fieldset: menu
+            menu_tags_text:
+                order: 2030
+                label: 'Link Text'
+                hint: 'Text to be used for the tags menu link.'
+                type: text
+                default: 'Tags'
+                tag: MenuTagsText
+                fieldset: menu
+            menu_tags_url:
+                order: 2040
+                label: 'URL'
+                hint: '(Optional) If blank this menu item will link to the Tags template.'
+                type: text
+                default: ''
+                tag: MenuTagsURL
+                fieldset: menu
+            menu_tags_lastn:
+                order: 2050
+                label: 'Number of Recent Entries'
+                hint: 'Enter the number of recent entries to determine the list if popular tags. For example, choose the top tags from the past 25 entries to show tags that are currently popular. This feature requires the Popular Tags plugin.'
+                type: text
+                default: 100
+                tag: MenuTagsSubMenuLastn
+                fieldset: menu
+            menu_tags_total:
+                order: 2060
+                label: 'Number of Tags in Sub-Menu'
+                hint: 'Up to this number of top tags will be included in the sub-menu.'
+                type: text
+                default: 10
+                tag: MenuTagsSubMenuTotal
+                fieldset: menu
+            menu_other_1:
+                order: 3000
+                label: 'Other Menu Link 1'
+                hint: 'Optional custom menu link.'
+                type: separator
+                fieldset: menu
+            menu_other_1_text:
+                order: 3010
+                label: 'Link Text'
+                hint: 'Text to be used for this menu link.'
+                type: text
+                default: ''
+                tag: MenuOther1Text
+                fieldset: menu
+            menu_other_1_url:
+                order: 3020
+                label: 'URL'
+                hint: 'Enter the URL for this menu link. If blank, this menu item will not be displayed.'
+                type: text
+                default: ''
+                tag: MenuOther1URL
+                fieldset: menu
+            menu_other_1_sub:
+                order: 3030
+                label: 'Sub-Menu Links'
+                hint: '(Optional) If desired, enter links to be used in a rollover sub-menu.'
+                type: link-group
+                tag: MenuOther1SubMenu
+                fieldset: menu
+            menu_other_2:
+                order: 4000
+                label: 'Other Menu Link 2'
+                hint: 'Optional custom menu link.'
+                type: separator
+                fieldset: menu
+            menu_other_2_text:
+                order: 4010
+                label: 'Link Text'
+                hint: 'Text to be used for this menu link.'
+                type: text
+                default: ''
+                tag: MenuOther2Text
+                fieldset: menu
+            menu_other_2_url:
+                order: 4020
+                label: 'URL'
+                hint: 'Enter the URL for this menu link. If blank, this menu item will not be displayed.'
+                type: text
+                default: ''
+                tag: MenuOther2URL
+                fieldset: menu
+            menu_other_2_sub:
+                order: 4030
+                label: 'Sub-Menu Links'
+                hint: '(Optional) If desired, enter links to be used in a rollover sub-menu.'
+                type: link-group
+                tag: MenuOther2SubMenu
+                fieldset: menu
+            menu_other_3:
+                order: 5000
+                label: 'Other Menu Link 3'
+                hint: 'Optional custom menu link.'
+                type: separator
+                fieldset: menu
+            menu_other_3_text:
+                order: 5010
+                label: 'Link Text'
+                hint: 'Text to be used for this menu link.'
+                type: text
+                default: ''
+                tag: MenuOther3Text
+                fieldset: menu
+            menu_other_3_url:
+                order: 5020
+                label: 'URL'
+                hint: 'Enter the URL for this menu link. If blank, this menu item will not be displayed.'
+                type: text
+                default: ''
+                tag: MenuOther3URL
+                fieldset: menu
+            menu_other_3_sub:
+                order: 5030
+                label: 'Sub-Menu Links'
+                hint: '(Optional) If desired, enter links to be used in a rollover sub-menu.'
+                type: link-group
+                tag: MenuOther3SubMenu
+                fieldset: menu
+            menu_other_4:
+                order: 6000
+                label: 'Other Menu Link 4'
+                hint: 'Optional custom menu link.'
+                type: separator
+                fieldset: menu
+            menu_other_4_text:
+                order: 6010
+                label: 'Link Text'
+                hint: 'Text to be used for this menu link.'
+                type: text
+                default: ''
+                tag: MenuOther4Text
+                fieldset: menu
+            menu_other_4_url:
+                order: 6020
+                label: 'URL'
+                hint: 'Enter the URL for this menu link. If blank, this menu item will not be displayed.'
+                type: text
+                default: ''
+                tag: MenuOther4URL
+                fieldset: menu
+            menu_other_4_sub:
+                order: 6030
+                label: 'Sub-Menu Links'
+                hint: '(Optional) If desired, enter links to be used in a rollover sub-menu.'
+                type: link-group
+                tag: MenuOther4SubMenu
+                fieldset: menu
+            menu_other_5:
+                order: 7000
+                label: 'Other Menu Link 5'
+                hint: 'Optional custom menu link.'
+                type: separator
+                fieldset: menu
+            menu_other_5_text:
+                order: 7010
+                label: 'Link Text'
+                hint: 'Text to be used for this menu link.'
+                type: text
+                default: ''
+                tag: MenuOther5Text
+                fieldset: menu
+            menu_other_5_url:
+                order: 7020
+                label: 'URL'
+                hint: 'Enter the URL for this menu link. If blank, this menu item will not be displayed.'
+                type: text
+                default: ''
+                tag: MenuOther5URL
+                fieldset: menu
+            menu_other_5_sub:
+                order: 7030
+                label: 'Sub-Menu Links'
+                hint: '(Optional) If desired, enter links to be used in a rollover sub-menu.'
+                type: link-group
+                tag: MenuOther5SubMenu
+                fieldset: menu
+            site_ga:
+                order: 1010
+                label: 'Google Analytics Tracking Code'
+                hint: 'Paste in javascript for Google Analytics. (Optional)'
+                type: textarea
+                rows: 10
+                fieldset: site
+                tag: GoogleAnalyticsCode
+            site_header_tags:
+                order: 1020
+                label: 'Meta and Link tags'
+                hint: 'Paste in any &lt;meta> or &lt;link> tags to be inserted in the &lt;head> section site-wide. (Optional)'
+                type: textarea
+                rows: 10
+                fieldset: site
+                tag: HeaderMetaCode
+            site_header_js:
+                order: 1025
+                label: 'Top-of-Page Javascript'
+                hint: 'Paste in any &lt;script> tags to be inserted in the &lt;head> section site-wide. (Optional)'
+                type: textarea
+                rows: 10
+                fieldset: site
+                tag: HeaderJSCode
+            site_footer_tags:
+                order: 1030
+                label: 'Bottom-of-Page Javascript'
+                hint: 'Paste in javascript to be inserted at the bottom of the page. Useful for stats trackers and other 3rd party service javascript that does not need to execute until the page has loaded'
+                type: textarea
+                rows: 10
+                fieldset: site
+                tag: FooterJSCode
+            site_css:
+                order: 1040
+                label: 'Custom CSS Styles'
+                hint: 'Paste in custom CSS styles. These will be inserted at the end of the theme stylesheet.'
+                type: textarea
+                rows: 10
+                fieldset: site
+                tag: CustomCSSCode
+            htaccess:
+                order: 10
+                label: 'HTACCESS Directives'
+                hint: 'These options are for advanced users - errors in the fields below may cause your entire site to become inaccessible. Bootstap uses mod-rewrite rules in a .htaccess file in the blog root directory, built by the HTACCESS index template.  Usingt eh fiedls below you can access custom htaccess directives in various locations of the file.'
+                type: separator
+                fieldset: htaccess
+            htaccess_top:
+                order: 1010
+                label: 'Top'
+                hint: 'Directives entered here will be placed at the very top of the htaccess file.  Note that mod-rewiute rules are NOT recommended for this section (Optional)'
+                type: textarea
+                rows: 10
+                fieldset: htaccess
+                tag: HTACCESSTop
+            htaccess_rw_before:
+                order: 1020
+                label: 'mod_rewrite Before Bootstap Theme Rules'
+                hint: 'Enter any mod_rewrite rules that to appear *above* the Bootstap Theme rules (Optional)'
+                type: textarea
+                rows: 10
+                fieldset: htaccess
+                tag: HTACCESSRwBefore
+            htaccess_rw_after:
+                order: 1023
+                label: 'mod_rewrite After Bootstap Theme Rules'
+                hint: 'Enter any mod_rewrite rules that to appear *below* the Bootstap Theme rules (Optional)'
+                type: textarea
+                rows: 10
+                fieldset: htaccess
+                tag: HTACCESSRwAfter
+            htaccess_bottom:
+                order: 1025
+                label: 'Bottom'
+                hint: 'Enter any htaccess directive to appear at the very bottom of the file (Optional)'
+                type: textarea
+                rows: 10
+                fieldset: htaccess
+                tag: HTACCESSBottom
+            sidebar_header:
+                order: 10
+                label: 'Customizing Sidebar Widgets'
+                hint: 'Using the options below you can customize the widgets that display in the sidebar. Note that each widget has a checbox that you can uncheck if you do not wish to display it. To re-order the widgets, goto Design > Widgets.'
+                type: separator
+                fieldset: sidebar
+            sidebar_recent:
+                order: 1010
+                label: 'Recent Entries Widget'
+                hint: 'A widget displaying the most recent entries.'
+                type: separator
+                fieldset: sidebar
+            sidebar_recent_show:
+                order: 1015
+                label: 'Show this Widget'
+                hint: 'Check this box to include this widget in the sidebar.'
+                type: checkbox
+                default: 1
+                tag: WidgetRecentShow
+                fieldset: sidebar
+            sidebar_recent_headline:
+                order: 1020
+                label: 'Widget Headline'
+                hint: 'Headline text for this widget'
+                type: text
+                default: 'Recent Entries'
+                tag: WidgetRecentHeadline
+                fieldset: sidebar
+            sidebar_recent_lastn:
+                order: 1030
+                label: 'Number of Entries'
+                hint: 'The maximum number of entries that will be listed in this widget.'
+                type: text
+                default: 5
+                tag: WidgetRecentLastn
+                fieldset: sidebar
+            sidebar_tags:
+                order: 3000
+                label: 'Tags Widget'
+                hint: 'A widget listing top tags used.'
+                type: separator
+                fieldset: sidebar
+            sidebar_tags_show:
+                order: 3005
+                label: 'Show this Widget'
+                hint: 'Check this box to include this widget in the sidebar.'
+                type: checkbox
+                default: 1
+                tag: WidgetTagsShow
+                fieldset: sidebar
+            sidebar_tags_headline:
+                order: 3010
+                label: 'Widget Headline'
+                hint: 'Headline text for this widget'
+                type: text
+                default: 'Tags'
+                tag: WidgetTagsHeadline
+                fieldset: sidebar
+            sidebar_tags_lastn:
+                order: 3020
+                label: 'Number of Recent Entries'
+                hint: 'Enter the number of recent entries to determine the list of popular tags. For example, choose the top tags from the past 25 entries to show tags that are currently popular. This feature requires the Popular Tags plugin.'
+                type: text
+                default: 100
+                tag: WidgetTagsLastn
+                fieldset: sidebar
+            sidebar_tags_total:
+                order: 3030
+                label: 'Number of Tags'
+                hint: 'Up to this number of top tags will be included in widget.'
+                type: text
+                default: 10
+                tag: WidgetTagsTotal
+                fieldset: sidebar
+            sidebar_links:
+                order: 13000
+                label: 'Links Widget'
+                hint: 'A widget listing a small number of links (can be internal or external links).'
+                type: separator
+                fieldset: sidebar
+            sidebar_links_show:
+                order: 13005
+                label: 'Show this Widget'
+                hint: 'Check this box to include this widget in the sidebar.'
+                type: checkbox
+                default: 1
+                tag: WidgetLinksShow
+                fieldset: sidebar
+            sidebar_links_headline:
+                order: 13010
+                label: 'Widget Headline'
+                hint: 'Headline text for this widget'
+                type: text
+                default: 'Links'
+                tag: WidgetLinksHeadline
+                fieldset: sidebar
+            sidebar_links_list:
+                order: 13020
+                label: 'Links List'
+                hint: 'Enter links to be displayed in this widget.'
+                type: link-group
+                tag: WidgetLinksList
+                fieldset: sidebar
+            home_page_lastn:
+                order: 1000
+                label: 'Number of Entries'
+                hint: 'Enter the number of entries to list on the home page.'
+                type: text
+                default: 10
+                tag: HomePageLastn
+                fieldset: home_page
+            home_page_category:
+                order: 1010
+                label: 'Category'
+                hint: '(Optional) Restrict home page entries to this category.'
+                type: text
+                default: ''
+                tag: HomePageCategory
+                fieldset: home_page
+            social_twitter:
+                order: 1000
+                label: 'Twitter'
+                hint: 'Options for Twitter integration.'
+                type: separator
+                fieldset: social
+            social_twitter_username:
+                order: 1010
+                label: 'Twitter Username'
+                hint: 'Enter the username for the Twitter account associated with this site.'
+                type: text
+                default: ''
+                tag: SocialTwitterUsername
+                fieldset: social
+            social_facebook:
+                order: 2010
+                label: 'Facebook Like Buttons'
+                hint: 'Options for the Facebook "Like" buttons and Facebook Comments. Please fill in at least one of the two options below.'
+                type: separator
+                fieldset: social
+            social_facebook_admins:
+                order: 2020
+                label: 'Facebook Admin ID'
+                hint: 'The numeric ID of the Facebook user who administers the site. A comma-separated list of multiple users is also supported.'
+                type: text
+                default: ''
+                fieldset: social
+                tag: SocialFacebookAdmins
+            social_facebook_app_id:
+                order: 2030
+                label: 'Facebook App ID'
+                hint: 'The Facebook Application ID of the Facebook app that administers this site. Required for Facebook Comments.'
+                type: text
+                default: ''
+                fieldset: social
+                tag: SocialFacebookAppID
+            advanced_tag_tmpl_id:
+                order: 1000
+                label: 'Template ID for Tag Pages'
+                hint: 'Enter the templayte id of the template module that powers tag pages.'
+                type: text
+                default: ''
+                tag: TagPagesTemplateID
+                fieldset: advanced
+            advanced_mteval:
+                order: 2000
+                label: 'Enable MTEval'
+                hint: 'Process MT template tags in Entries and Page bodies. Use with care. This can be a security risk if not used with care.'
+                type: checkbox
+                default: 0
+                tag: UseMTEval
+                fieldset: advanced
+        content:
+            pages:
+                about:
+                    label: 'About'
+                    body: 'About this site info goes here'
+                    tags:
+                        - '@about'
+                contact:
+                    label: 'Contact'
+                    body: 'Contact text goes here'
+                    tags:
+                        - '@contact'
+        templates:
+            index:
+                main_index:
+                    label: Main Index
+                    outfile: index.html
+                    rebuild_me: 1
+                    build_type: 1
+                css_theme:
+                    label: CSS - Theme
+                    outfile: css/theme.css
+                    rebuild_me: 0
+                    build_type: 2
+                htaccess:
+                    label: HTACCESS
+                    outfile: .htaccess
+                    rebuild_me: 0
+                    build_type: 2
+                htrewrite:
+                    label: HTREWRITE
+                    outfile: .htrewrite
+                    rebuild_me: 0
+                    build_type: 2
+                visitor_stats:
+                    label: Visitor Stats
+                    outfile: stats.php
+                    rebuild_me: 0
+                    build_type: 2
+                tags_top:
+                    label: Tags - Top
+                    outfile: top-tags.html
+                    rebuild_me: 0
+                    build_type: 4
+                categories:
+                    label: Categories
+                    outfile: categories.html
+                    rebuild_me: 0
+                    build_type: 4
+                archives:
+                    label: Archives
+                    outfile: archives.html
+                    rebuild_me: 0
+                    build_type: 4
+                feed_recent:
+                    label: Feed - Atom
+                    outfile: atom.xml
+                    rebuild_me: 1
+                    build_type: 1
+                404:
+                    label: 404 - Page Not Found
+                    outfile: 404.html
+                    rebuild_me: 0
+                    build_type: 2
+                  
+            individual:
+                entry:
+                    label: 'Entry'
+                    mappings:
+                        entry_archive:
+                            archive_type: 'Individual'
+                            file_template: '%-c/%-b/%i'
+                            preferred: 1
+                            build_type: 1
+            page:
+                page:
+                    label: 'Page'
+                    mappings:
+                        page_archive:
+                            archive_type: 'Page'
+                            file_template: '%-c/%-f'
+                            preferred: 1
+                            build_type: 1
+            archive:
+                category:
+                    label: 'Category Archive'
+                    mappings:
+                        category:
+                            archive_type: Category
+                            file_template: '%-c/%i'
+                            preferred: 1
+                            build_type: 4
+            custom:
+                m_html_header:
+                    label: 'HTML Header'
+                m_header:
+                    label: 'Header'
+                m_footer:
+                    label: 'Footer'
+                m_html_footer:
+                    label: 'HTML Footer'
+                m_post_summary_story:
+                    label: 'Post Summary - Story'
+                m_pagination:
+                    label: 'Pagination'
+                m_sidebar:
+                    label: 'Sidebar'
+                m_footer:
+                    label: 'Footer'
+                m_tag_pages:
+                    label: 'Tag Pages'
+                m_master:
+                    label: 'master'
+            system:
+                search_results:
+                    label: 'Search Results'
+            widget:
+                w_sidebar_recent:
+                    label: 'Sidebar - Recent Entries'
+                w_sidebar_tags:
+                    label: 'Sidebar - Top Tags'
+                w_sidebar_links:
+                    label: 'Sidebar - Links'
+                w_main_recent_entries:
+                    label: 'Main - Recent Entries'
+                w_entry_summary:
+                    label: 'Entry Summary'
+            widgetset:
+                sidebar_widgetset:
+                    order: 1
+                    label: 'Sidebar'
+                    widgets:
+                        - 'Sidebar - Recent Entries'
+                        - 'Sidebar - Top Tags'
+                        - 'Sidebar - Links'
+                main_home_widgetset:
+                    order: 2
+                    label: 'Main - Home Page'
+                    widgets:
+                        - 'Main - Recent Entries'
+                entry_summary_widgetset:
+                    order: 3
+                    label: 'Entry Summary'
+                    widgets:
+                        - 'Entry Summary'
+skip_static:
+    - index.html
+    - readme.txt
+    - .psd
+    - .zip
+
+

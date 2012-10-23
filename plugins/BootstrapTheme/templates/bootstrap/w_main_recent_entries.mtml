@@ -1,0 +1,9 @@
+<mt:HomePageLastn setvar="home_page_lastn">
+<mt:HomePageCategory setvar="home_page_category">
+
+<mt:SetVarBlock name="main_content">
+    <mt:Entries category="$home_page_category" lastn="$home_page_lastn" offset="$pagination_offset">
+      <mt:WidgetManager name="Entry Summary">
+    </mt:Entries>
+    <mt:Include module="Pagination" lastn="$home_page_lastn">
+</mt:SetVarBlock>

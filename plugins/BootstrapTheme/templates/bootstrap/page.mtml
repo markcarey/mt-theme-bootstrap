@@ -1,0 +1,22 @@
+<mt:EntryTitle encode_html="1" setvar="page_title">
+<mt:EntryExcerpt encode_html="1" setvar="page_description">
+<mt:SetVarBlock name="head_prefix"> prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#"</mt:SetVarBlock>
+
+<mt:SetVarBlock name="entry_social">
+  <div class="entry-meta" style="margin-top: 20px">
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="<mt:SocialTwitterUsername>" data-related="mthacks" data-lang="en">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+    <mt:If tag="SocialFacebookAppID">
+      <div class="fb-like" data-href="<mt:EntryLink>" data-send="false" data-width="450" data-show-faces="true"></div>
+
+      <div class="fb-comments" data-href="<mt:EntryLink>" data-num-posts="10" data-width="620"></div>
+    </mt:If>
+  </div>
+</mt:SetVarBlock>
+
+<mt:SetVarBlock name="main_content">
+    <mt:Include module="Post Summary - Story">
+</mt:SetVarBlock>
+
+<mt:Include module="Master">

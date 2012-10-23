@@ -1,0 +1,54 @@
+<article id="post-<mt:EntryID>" class="post-<mt:EntryID> post type-post status-publish format-standard hentry">
+		
+  <header class="page-header">
+    <h1 class="entry-title"><mt:If name="entry_page"><mt:EntryTitle><mt:Else><a href="<mt:EntryLink>" title="Permalink to <mt:EntryTitle encode_html="1">" rel="bookmark"><mt:EntryTitle></a></mt:If></h1>
+    <div class="entry-meta">
+      <span class="sep">Posted on </span><a href="<mt:EntryLink>" title="" rel="bookmark"><time class="entry-date" datetime="<mt:EntryDate format_name="iso8601">" pubdate><mt:EntryDate></time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="<mt:EntryAuthorURL>" title="View all posts by <mt:EntryAuthor encode_html="1">" rel="author"><mt:EntryAuthor></a></span></span>
+     </div><!-- .entry-meta -->
+  </header><!-- .entry-header -->
+
+  <div class="entry-content clearfix">
+  
+    <mt:UseMTEval setvar="use_mt_eval">
+    <mt:Var name="before_entry_body">
+    
+    <mt:EntryBody mteval="$use_mt_eval">
+
+<mt:If name="entry_page">
+
+  <mt:EntryMore mteval="$use_mt_eval">
+
+<mt:Else>
+
+  <mt:If tag="EntryMore" convert_breaks="0">
+   <p> <a href="<mt:EntryLink>" class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+  </mt:If>
+
+</mt:If>
+
+    <mt:Var name="after_entry_body">
+
+  </div><!-- .entry-content -->
+	
+<mt:EntryCategories glue=", " setvar="entry_cats"><a href="<mt:ArchiveLink type="Category">" rel="category tag"><mt:CategoryLabel></a></mt:EntryCategories>
+<mt:If name="entry_page">
+  <mt:EntryTags glue=", " setvar="entry_tags"><a href="<mt:TagSearchLink tag_dir="tag">/" rel="tag"><mt:TagName></a></mt:EntryTags>
+</mt:If>
+<mt:If name="entry_cats"><mt:Var name="entry_footer" value="1"></mt:If>
+<mt:If name="entry_tags"><mt:Var name="entry_footer" value="1"></mt:If>
+        
+	<mt:If name="entry_footer">
+          <footer class="entry-meta">
+            <mt:If name="entry_cats">
+              <span class="cat-links">Posted in <mt:Var name="entry_cats">.</span>
+            </mt:If>
+            <mt:If name="entry_tags">
+              <mt:If name="entry_cats"><br class="sep"></mt:If>
+              <span class="tag-links">Tagged <mt:Var name="entry_tags">.</span>
+            </mt:If>
+          </footer><!-- #entry-meta -->
+        </mt:If>
+	
+  <mt:Var name="entry_social">
+
+	</article><!-- #post-<mt:EntryID> -->

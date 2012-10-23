@@ -1,0 +1,22 @@
+<mt:Var name="page_title" value="Archives">
+
+<mt:SetVarBlock name="pagination_base_url"><mt:BlogURL>archives/</mt:SetVarBlock>
+<mt:Var name="per_page" value="100">
+
+<mt:SetVarBlock name="main_content">
+    <header class="page-header">
+      <h1 class="page-title"><mt:Var name="page_title"></h1>
+    </header>
+    <mt:Entries lastn="$per_page" offset="$pagination_offset">
+      <mt:If name="__first__">
+        <ul>
+      </mt:If>
+      <li><a href="<mt:EntryLink>"><mt:EntryTitle></a></li>
+      <mt:If name="__last__">
+        </ul>
+      </mt:If>
+    </mt:Entries>
+    <mt:Include module="Pagination" lastn="$per_page">
+</mt:SetVarBlock>
+
+<mt:Include module="Master">

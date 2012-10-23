@@ -1,0 +1,239 @@
+<div class="container">
+  <div id="page" class="hfeed row">
+    <header id="branding" role="banner" class="span12">
+      <hgroup>
+        <h1 id="site-title">
+	  <a href="<mt:BlogURL>" title="<mt:If tag="SiteHeadline"><mt:SiteHeadline><mt:Else><mt:BlogName></mt:If>" rel="home">
+	    <span><mt:If tag="SiteHeadline"><mt:SiteHeadline><mt:Else><mt:BlogName></mt:If></span>
+	  </a>
+        </h1>
+	<h2 id="site-description"><mt:BlogDescription></h2>
+      </hgroup>
+					
+<mt:If tag="SiteHeaderImage">
+<a id="header-image" href="<mt:BlogURL>" title="<mt:BlogName>" rel="home">
+  <img src="<mt:SiteHeaderImageAsset><mt:AssetThumbnailURL width="1170"></mt:SiteHeaderImageAsset>" width="1170" alt="" />
+</a>
+</mt:If>
+
+					
+					<nav id="access" role="navigation">
+						<h3 class="assistive-text">Main menu</h3>
+						<div class="skip-link"><a class="assistive-text" href="#content" title="Skip to primary content">Skip to primary content</a></div>
+						<div class="skip-link"><a class="assistive-text" href="#secondary" title="Skip to secondary content">Skip to secondary content</a></div>
+												<div class="navbar navbar-fixed-top<mt:If tag="MenuColor" eq="Dark"> navbar-inverse</mt:If>">
+							<div class="navbar-inner">
+								<div class="container">
+									<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+									<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</a>
+<a href="<mt:BlogURL>" title="<mt:BlogName>" rel="home">
+  <span class="brand"><mt:If tag="SiteLogoImage"><img src="<mt:SiteLogoImageAsset><mt:AssetThumbnailURL height="19"></mt:SiteLogoImageAsset>" /><mt:Else><mt:If tag="SiteHeadline"><mt:SiteHeadline><mt:Else><mt:BlogName></mt:If></mt:If></span>
+</a>
+																		<div class="nav-collapse">
+										
+
+<div class="menu-tab-navi-container">
+  <ul id="menu-tab-navi" class="nav">
+
+<mt:If tag="MenuHomeText">
+    <li id="menu-home"><a href="<mt:BlogURL>"><mt:MenuHomeText></a></li>
+</mt:If>
+
+	<mt:If tag="MenuArchivesText">    
+		<li id="menu-archives" <mt:MenuArchivesSubMenuLinks><mt:If name="__first__"> class="dropdown"</mt:If></mt:MenuArchivesSubMenuLinks>>
+		    <a href="<mt:If tag="MenuArchivesURL"><mt:MenuArchivesURL><mt:Else><mt:Link template="archives"></mt:If>" <mt:MenuArchivesSubMenuLinks><mt:If name="__first__"> class="dropdown-toggle" data-toggle="dropdown"</mt:If></mt:MenuArchivesSubMenuLinks>><mt:MenuArchivesText><mt:MenuArchivesSubMenuLinks><mt:If name="__first__"> <b class="caret"></b></mt:If></mt:MenuArchivesSubMenuLinks></a>
+	    <mt:MenuArchivesSubMenuLinks>
+	        <mt:If name="__first__">
+		         <ul class="dropdown-menu">
+		    </mt:If>
+				    <li><a href="<mt:Var name="link_url">"><mt:Var name="link_label"></a></li>
+			<mt:If name="__last__">
+			    </ul>
+			</mt:If>
+		</mt:MenuArchivesSubMenuLinks>
+		</li>
+	</mt:If>
+
+
+	<mt:If tag="MenuCategoriesText">
+	    <li id="menu-categories"<mt:Unless tag="MenuCategoriesSubMenuType" eq="No Sub-Menu">  class="dropdown"</mt:Unless>>
+		    <a href="<mt:If tag="MenuCategoriesURL"><mt:MenuCategoriesURL><mt:Else><mt:Link template="categories"></mt:If>" <mt:Unless tag="MenuCategoriesSubMenuType" eq="No Sub-Menu"> class="dropdown-toggle" data-toggle="dropdown"</mt:Unless>><mt:MenuCategoriesText><mt:Unless tag="MenuCategoriesSubMenuType" eq="No Sub-Menu"> <b class="caret"></b></mt:Unless></a>
+	    <mt:If tag="MenuCategoriesSubMenuType" eq="All Categories">
+	        <mt:Categories>
+		        <mt:If name="__first__">
+			        <ul class="dropdown-menu">
+			    </mt:If>
+					    <li><a href="<mt:CategoryArchiveLink>"><mt:CategoryLabel></a></li>
+				<mt:If name="__last__">
+				    </ul>
+				</mt:If>
+			</mt:Categories>
+		
+		<mt:Else tag="MenuCategoriesSubMenuType" eq="Only Top-Level Categories">
+            <ul class="dropdown-menu">
+		    <mt:TopLevelCategories>
+			    <li><a href="<mt:CategoryArchiveLink>"><mt:CategoryLabel></a></li>
+			</mt:TopLevelCategories>
+			</ul>
+		
+		<mt:Else tag="MenuCategoriesSubMenuType" eq="Only Categories Selected Below">
+	        <mt:MenuCategoriesListCategories>
+		        <mt:If name="__first__">
+			        <ul class="dropdown-menu">
+			    </mt:If>
+					    <li><a href="<mt:CategoryArchiveLink>"><mt:CategoryLabel></a></li>
+				<mt:If name="__last__">
+				    </ul>
+				</mt:If>
+			</mt:MenuCategoriesListCategories>
+		
+		</mt:If>
+		</li>
+	</mt:If>
+
+
+	<mt:If tag="MenuTagsText">    
+		<li id="menu-tags"<mt:If tag="MenuTagsSubMenuTotal"> class="dropdown"</mt:If>>
+		    <a href="<mt:If tag="MenuTagsURL"><mt:MenuTagsURL><mt:Else><mt:Link template="tags_top"></mt:If>" <mt:If tag="MenuTagsSubMenuTotal"> class="dropdown-toggle" data-toggle="dropdown"</mt:If>><mt:MenuTagsText><mt:If tag="MenuTagsSubMenuTotal"> <b class="caret"></b></mt:If></a>
+	    <mt:MenuTagsSubMenuTotal setvar="menu_tags_total">
+	    
+	    <mt:IfAvailable plugin_id="recenttags">
+	        
+	        <mt:MenuTagsSubMenuLastn setvar="menu_tags_lastn">
+	        <mt:RecentTags top="$menu_tags_total" lastn="$menu_tags_lastn" sort_by="rank">
+		        <mt:If name="__first__">
+			        <ul class="dropdown-menu">
+			    </mt:If>
+					    <li><a href="<mt:TagSearchLink tag_dir="tag">/"><mt:TagName></a></li>
+				<mt:If name="__last__">
+				    </ul>
+				</mt:If>
+			</mt:RecentTags>
+	    
+	    <mt:Else>
+	    
+		    <mt:Tags top="$menu_tags_total" sort_by="rank">
+		        <mt:If name="__first__">
+			        <ul class="dropdown-menu">
+			    </mt:If>
+					    <li><a href="<mt:TagSearchLink tag_dir="tag">/"><mt:TagName></a></li>
+				<mt:If name="__last__">
+				    </ul>
+				</mt:If>
+			</mt:Tags>
+			
+		</mt:IfAvailable>
+		</li>
+	</mt:If>
+
+
+	<mt:If tag="MenuOther1Text">
+		<li id="menu-other1"<mt:MenuOther1SubMenuLinks><mt:If name="__first__"> class="dropdown"</mt:If></mt:MenuOther1SubMenuLinks>>
+			<a href="<mt:MenuOther1URL>"<mt:MenuOther1SubMenuLinks><mt:If name="__first__"> class="dropdown-toggle" data-toggle="dropdown"</mt:If></mt:MenuOther1SubMenuLinks>><mt:MenuOther1Text><mt:MenuOther1SubMenuLinks><mt:If name="__first__"> <b class="caret"></b></mt:If></mt:MenuOther1SubMenuLinks></a>
+			<mt:MenuOther1SubMenuLinks>
+		        <mt:If name="__first__">
+			        <ul class="dropdown-menu">
+			    </mt:If>
+					    <li><a href="<mt:Var name="link_url">"><mt:Var name="link_label"></a></li>
+				<mt:If name="__last__">
+				    </ul>
+				</mt:If>
+			</mt:MenuOther1SubMenuLinks>
+		</li>
+	</mt:If>
+
+	<mt:If tag="MenuOther2Text">
+		<li id="menu-other2"<mt:MenuOther2SubMenuLinks><mt:If name="__first__"> class="dropdown"</mt:If></mt:MenuOther2SubMenuLinks>>
+			<a href="<mt:MenuOther2URL>"<mt:MenuOther2SubMenuLinks><mt:If name="__first__"> class="dropdown-toggle" data-toggle="dropdown"</mt:If></mt:MenuOther2SubMenuLinks>><mt:MenuOther2Text><mt:MenuOther2SubMenuLinks><mt:If name="__first__"> <b class="caret"></b></mt:If></mt:MenuOther2SubMenuLinks></a>
+			<mt:MenuOther2SubMenuLinks>
+		        <mt:If name="__first__">
+			        <ul class="dropdown-menu">
+			    </mt:If>
+					    <li><a href="<mt:Var name="link_url">"><mt:Var name="link_label"></a></li>
+				<mt:If name="__last__">
+				    </ul>
+				</mt:If>
+			</mt:MenuOther2SubMenuLinks>
+		</li>
+	</mt:If>
+
+
+
+	<mt:If tag="MenuOther3Text">
+		<li id="menu-other3"<mt:MenuOther3SubMenuLinks><mt:If name="__first__"> class="dropdown"</mt:If></mt:MenuOther3SubMenuLinks>>
+			<a href="<mt:MenuOther3URL>"<mt:MenuOther3SubMenuLinks><mt:If name="__first__"> class="dropdown-toggle" data-toggle="dropdown"</mt:If></mt:MenuOther3SubMenuLinks>><mt:MenuOther3Text><mt:MenuOther3SubMenuLinks><mt:If name="__first__"> <b class="caret"></b></mt:If></mt:MenuOther3SubMenuLinks></a>
+			<mt:MenuOther3SubMenuLinks>
+		        <mt:If name="__first__">
+			        <ul class="dropdown-menu">
+			    </mt:If>
+					    <li><a href="<mt:Var name="link_url">"><mt:Var name="link_label"></a></li>
+				<mt:If name="__last__">
+				    </ul>
+				</mt:If>
+			</mt:MenuOther3SubMenuLinks>
+		</li>
+	</mt:If>
+
+
+
+	<mt:If tag="MenuOther4Text">
+		<li id="menu-other4"<mt:MenuOther4SubMenuLinks><mt:If name="__first__"> class="dropdown"</mt:If></mt:MenuOther4SubMenuLinks>>
+			<a href="<mt:MenuOther4URL>"<mt:MenuOther4SubMenuLinks><mt:If name="__first__"> class="dropdown-toggle" data-toggle="dropdown"</mt:If></mt:MenuOther4SubMenuLinks>><mt:MenuOther4Text><mt:MenuOther4SubMenuLinks><mt:If name="__first__"> <b class="caret"></b></mt:If></mt:MenuOther4SubMenuLinks></a>
+			<mt:MenuOther4SubMenuLinks>
+		        <mt:If name="__first__">
+			        <ul class="dropdown-menu">
+			    </mt:If>
+					    <li><a href="<mt:Var name="link_url">"><mt:Var name="link_label"></a></li>
+				<mt:If name="__last__">
+				    </ul>
+				</mt:If>
+			</mt:MenuOther4SubMenuLinks>
+		</li>
+	</mt:If>
+
+
+
+	<mt:If tag="MenuOther5Text">
+		<li id="menu-other5"<mt:MenuOther5SubMenuLinks><mt:If name="__first__"> class="dropdown"</mt:If></mt:MenuOther5SubMenuLinks>>
+			<a href="<mt:MenuOther5URL>"<mt:MenuOther5SubMenuLinks><mt:If name="__first__"> class="dropdown-toggle" data-toggle="dropdown"</mt:If></mt:MenuOther5SubMenuLinks>><mt:MenuOther5Text><mt:MenuOther5SubMenuLinks><mt:If name="__first__"> <b class="caret"></b></mt:If></mt:MenuOther5SubMenuLinks></a>
+			<mt:MenuOther5SubMenuLinks>
+		        <mt:If name="__first__">
+			        <ul class="dropdown-menu">
+			    </mt:If>
+					    <li><a href="<mt:Var name="link_url">"><mt:Var name="link_label"></a></li>
+				<mt:If name="__last__">
+				    </ul>
+				</mt:If>
+			</mt:MenuOther5SubMenuLinks>
+		</li>
+	</mt:If>
+
+
+    <mt:Pages lastn="1" tag="@about">
+      <li id="menu-about" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item"><a href="<mt:PagePermalink>">About</a></li>
+    </mt:Pages>
+
+    <mt:Pages lastn="1" tag="@contact">
+      <li id="menu-contact" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item"><a href="<mt:PagePermalink>">Contact</a></li>
+    </mt:Pages>
+
+  </ul>
+</div>	
+
+<mt:Ignore reason="TODO search">
+<form id="searchform" class="navbar-search pull-right" method="get" action="">
+
+<label for="s" class="assistive-text hidden">Search</label>
+<input type="search" class="search-query" name="s" id="s" placeholder="Search" />
+</form>	
+</mt:Ignore>
+							    </div>
+								</div>
+							</div>
+						</div>
+											</nav><!-- #access -->
+									</header><!-- #branding -->

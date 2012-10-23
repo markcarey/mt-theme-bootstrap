@@ -1,0 +1,31 @@
+<mt:IfAvailable plugin_id="pagination">
+
+<mt:Unless name="lastn">
+  <mt:Var name="lastn" value="10">
+</mt:Unless>
+
+<mt:PaginationPages max_pages="10" glue="" lastn="$lastn">
+<mt:If __first__>
+  <div class="pagination pagination-centered clearfix">
+    <ul>
+  <mt:IfPreviousPage><li><a href="<mt:If tag="PaginationPreviousPageNumber" eq="1"><mt:var name="pagination_base_url"><mt:Else><mt:var name="pagination_base_url"><mt:PaginationPreviousPageNumber>/</mt:If>">Previous</a></li></mt:IfPreviousPage>
+</mt:If>
+  <mt:IfCurrentPage>
+    <li class="active"><a href="<mt:Var name="pagination_base_url">"><mt:PaginationPageNumber></a></li>
+  <mt:Else>
+    <li><a href="<mt:If tag="PaginationPageNumber" eq="1"><mt:var name="pagination_base_url"><mt:Else><mt:var name="pagination_base_url"><mt:PaginationPageNumber>/</mt:If>" class="page"><mt:PaginationPageNumber></a></li>
+  </mt:IfCurrentPage>
+<mt:If __last__>
+ <mt:ignore>
+  <mt:IfNotLastPage>
+    <li class="disabled">...</li>
+    <li><a href="<mt:Var name="pagination_base_url"><mt:LastPageNumber>/"><mt:LastPageNumber></a></li>
+  </mt:IfNotLastPage>
+ </mt:ignore>
+  <mt:IfNextPage><li><a href="<mt:Var name="pagination_base_url"><mt:PaginationNextPageNumber>/">Next</a></li></mt:IfNextPage>
+    </ul>
+  </div>
+</mt:If>
+</mt:PaginationPages>
+
+</mt:IfAvailable>

@@ -1,0 +1,18 @@
+<mt:If tag="WidgetRecentShow">
+	<!-- Recent Entries Widget -->
+	<mt:WidgetRecentLastn setvar="recent_lastn">
+	<mt:Entries lastn="$recent_lastn">
+	    <mt:If name="__first__">
+              <aside id="recent-posts-2" class="widget well widget_recent_entries">
+			<mt:If tag="WidgetRecentHeadline">
+				<h2 class="widget-title"><mt:WidgetRecentHeadline></h2>
+			</mt:If>
+                        <ul>
+	    </mt:If>
+			  <li><a href="<mt:EntryLink>"><mt:EntryTitle></a></li>
+	       <mt:If name="__last__">
+	           </ul>
+                 </aside>
+	       </mt:If>
+	</mt:Entries>
+</mt:If>

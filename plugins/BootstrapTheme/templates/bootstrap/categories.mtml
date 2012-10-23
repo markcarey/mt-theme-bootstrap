@@ -1,0 +1,18 @@
+<mt:Var name="page_title" value="Categories">
+
+<mt:SetVarBlock name="main_content">
+    <header class="page-header">
+      <h1 class="page-title"><mt:Var name="page_title"></h1>
+    </header>
+    <mt:Categories>
+    	<mt:If name="__first__">
+    		<ul>
+    	</mt:If>
+    	<li><a href="<mt:CategoryArchiveLink>"><mt:CategoryLabel></a></li>
+    	<mt:If name="__last__">
+    		</ul>
+    	</mt:If>
+    </mt:Categories>
+</mt:SetVarBlock>
+
+<mt:Include module="Master">

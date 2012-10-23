@@ -1,0 +1,19 @@
+<mt:If tag="WidgetLinksShow">
+	<mt:WidgetLinksListLinks>
+		<mt:If name="__first__">
+			<!-- Links Widget -->
+                        <aside id="sidebar-links" class="widget well">
+			<mt:If tag="WidgetLinksHeadline">
+				<h2 class="widget-title"><mt:WidgetLinksHeadline></h2>
+			</mt:If>
+			<ul>
+		</mt:If>
+
+		<li><a href="<mt:Var name="link_url">"><mt:Var name="link_label"></a></li>
+
+		<mt:If name="__last__">
+			</ul>
+                        </aside>
+		</mt:If>
+	</mt:WidgetLinksListLinks>
+</mt:If>
