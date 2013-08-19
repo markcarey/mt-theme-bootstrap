@@ -1,7 +1,7 @@
 name: Bootstrap Theme
 id: BootstrapTheme
 key: BootstrapTheme
-version: 1.0.0
+version: 1.0.1
 static_version: 3
 blog_preferences:
     bootstrap_config:
@@ -54,6 +54,9 @@ template_sets:
                 home_page:
                     label: 'Home Page'
                     order: 200
+                hero_unit:
+                    label: 'Hero Unit'
+                    order: 250
                 advertising:
                     label: 'Advertising'
                     order: 300
@@ -579,6 +582,97 @@ template_sets:
                 default: ''
                 tag: HomePageCategory
                 fieldset: home_page
+            hero_unit_headline:
+                order: 1000
+                label: 'Headline'
+                hint: 'Enter a headline for the Hero Unit.'
+                type: text
+                tag: HeroUnitHeadline
+                fieldset: hero_unit
+            hero_unit_text:
+                order: 1010
+                label: 'Body Text'
+                hint: 'Enter a small amount for text to display below the headline. Use HTML if desired.'
+                type: textarea
+                rows: 5
+                tag: HeroUnitText
+                fieldset: hero_unit
+            hero_unit_button_label:
+                order: 1020
+                label: 'Button Text'
+                hint: 'Enter text for the button. Leave blank for no button.'
+                type: text
+                tag: HeroUnitButtonLabel
+                fieldset: hero_unit
+            hero_unit_button_url:
+                order: 1030
+                label: 'Button Link'
+                hint: 'Enter a URL for the button.'
+                type: text
+                tag: HeroUnitButtonURL
+                fieldset: hero_unit
+            hero_unit_enable:
+                order: 1040
+                label: 'Where to Display the Hero Unit'
+                hint: 'The settings below control where the Hero Unit will be shown.'
+                type: separator
+                fieldset: hero_unit
+            hero_unit_enable_home_page:
+                order: 1050
+                label: 'Home Page'
+                hint: 'Show Hero Unit on the Home Page.'
+                type: checkbox
+                tag: HeroUnitEnableHomePage
+                fieldset: hero_unit
+            hero_unit_enable_archives:
+                order: 1052
+                label: 'Archive Index'
+                hint: 'Show Hero Unit on the Archives listing page.'
+                type: checkbox
+                tag: HeroUnitEnableHomeArchivesIndex
+                fieldset: hero_unit
+            hero_unit_enable_categories:
+                order: 1054
+                label: 'Archive Index'
+                hint: 'Show Hero Unit on the Categories listing page.'
+                type: checkbox
+                tag: HeroUnitEnableHomeCategoriesIndex
+                fieldset: hero_unit
+            hero_unit_enable_tags:
+                order: 1056
+                label: 'Tags Index'
+                hint: 'Show Hero Unit on the Tags listing page.'
+                type: checkbox
+                tag: HeroUnitEnableTagsIndex
+                fieldset: hero_unit
+            hero_unit_enable_entries:
+                order: 1060
+                label: 'Entry Archives'
+                hint: 'Show Hero Unit on all individual Entry archives.'
+                type: checkbox
+                tag: HeroUnitEnableEntries
+                fieldset: hero_unit
+            hero_unit_enable_pages:
+                order: 1070
+                label: 'Page Archives'
+                hint: 'Show Hero Unit on all individual Page archives.'
+                type: checkbox
+                tag: HeroUnitEnablePages
+                fieldset: hero_unit
+            hero_unit_enable_categories:
+                order: 1080
+                label: 'Categories Archives'
+                hint: 'Show Hero Unit on all Category archives.'
+                type: checkbox
+                tag: HeroUnitEnableCategories
+                fieldset: hero_unit
+            hero_unit_enable_search_results:
+                order: 1090
+                label: 'Tag Pages and Search Results'
+                hint: 'Show Hero Unit on all Tag pages and search result pages.'
+                type: checkbox
+                tag: HeroUnitEnableSearchResults
+                fieldset: hero_unit
             social_twitter:
                 order: 1000
                 label: 'Twitter'
@@ -744,6 +838,8 @@ template_sets:
                     label: 'Tag Pages'
                 m_master:
                     label: 'master'
+                m_hero_unit:
+                    label: 'Hero Unit'
             system:
                 search_results:
                     label: 'Search Results'
