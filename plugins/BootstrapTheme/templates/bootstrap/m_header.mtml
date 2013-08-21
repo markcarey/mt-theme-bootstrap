@@ -222,15 +222,17 @@
     </mt:Pages>
 
   </ul>
-</div>	
+</div>		
 
-<mt:Ignore reason="TODO search">
-<form id="searchform" class="navbar-search pull-right" method="get" action="">
+<mt:If tag="MenuSearchText">
+    <mt:SetVarBlock name="search_script"><mt:CGIPath><mt:SearchScript></mt:SetVarBlock>
+    <form id="navbar-search" class="navbar-search pull-right" action="<mt:Var name="search_script">">
+      <input type="hidden" name="blog_id" value="<mt:BlogID>">
+      <input type="text" name="search" class="search-query" placeholder="<mt:MenuSearchText>">
+      <div class="icon-search"></div>
+    </form>
+</mt:If>
 
-<label for="s" class="assistive-text hidden">Search</label>
-<input type="search" class="search-query" name="s" id="s" placeholder="Search" />
-</form>	
-</mt:Ignore>
 							    </div>
 								</div>
 							</div>

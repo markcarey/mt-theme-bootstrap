@@ -1,7 +1,7 @@
 name: Bootstrap Theme
 id: BootstrapTheme
 key: BootstrapTheme
-version: 1.0.2
+version: 1.0.3
 static_version: 3
 blog_preferences:
     bootstrap_config:
@@ -239,6 +239,20 @@ template_sets:
                 type: text
                 default: 10
                 tag: MenuTagsSubMenuTotal
+                fieldset: menu
+            menu_search:
+                order: 2065
+                label: 'Search Form'
+                hint: 'This will display a search form on the menu bar.'
+                type: separator
+                fieldset: menu
+            menu_search_text:
+                order: 2067
+                label: 'Search Text'
+                hint: 'Placeholder text to be displayed in the search form. Leave blank to exclude search form from the menu.'
+                type: text
+                default: 'Search'
+                tag: MenuSearchText
                 fieldset: menu
             menu_other_1:
                 order: 3000
