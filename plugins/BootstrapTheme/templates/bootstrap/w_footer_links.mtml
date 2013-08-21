@@ -1,0 +1,19 @@
+<mt:If tag="FooterWidgetLinksShow">
+	<mt:FooterWidgetLinksListLinks>
+		<mt:If name="__first__">
+			<!-- Links Widget -->
+                        <div id="footer-links" class="widget span3">
+			<mt:If tag="FooterWidgetLinksHeadline">
+				<h3 class="widget-title"><mt:FooterWidgetLinksHeadline></h3>
+			</mt:If>
+			<ul>
+		</mt:If>
+
+		<li><a href="<mt:Var name="link_url">"><mt:Var name="link_label"></a></li>
+
+		<mt:If name="__last__">
+			</ul>
+                        </div>
+		</mt:If>
+	</mt:FooterWidgetLinksListLinks>
+</mt:If>

@@ -1,7 +1,7 @@
 name: Bootstrap Theme
 id: BootstrapTheme
 key: BootstrapTheme
-version: 1.0.1
+version: 1.0.2
 static_version: 3
 blog_preferences:
     bootstrap_config:
@@ -566,6 +566,109 @@ template_sets:
                 type: link-group
                 tag: WidgetLinksList
                 fieldset: sidebar
+            footer_header:
+                order: 10
+                label: 'Customizing Footer Widgets'
+                hint: 'Using the options below you can customize the widgets that display in the footer. Note that each widget has a checbox that you can uncheck if you do not wish to display it. To re-order the widgets, goto Design > Widgets.'
+                type: separator
+                fieldset: footer
+            footer_recent:
+                order: 1010
+                label: 'Recent Entries Widget'
+                hint: 'A widget displaying the most recent entries.'
+                type: separator
+                fieldset: footer
+            footer_recent_show:
+                order: 1015
+                label: 'Show this Widget'
+                hint: 'Check this box to include this widget in the footer.'
+                type: checkbox
+                default: 1
+                tag: FooterWidgetRecentShow
+                fieldset: footer
+            footer_recent_headline:
+                order: 1020
+                label: 'Widget Headline'
+                hint: 'Headline text for this widget'
+                type: text
+                default: 'Recent Entries'
+                tag: FooterWidgetRecentHeadline
+                fieldset: footer
+            footer_recent_lastn:
+                order: 1030
+                label: 'Number of Entries'
+                hint: 'The maximum number of entries that will be listed in this widget.'
+                type: text
+                default: 5
+                tag: FooterWidgetRecentLastn
+                fieldset: footer
+            footer_tags:
+                order: 3000
+                label: 'Tags Widget'
+                hint: 'A widget listing top tags used.'
+                type: separator
+                fieldset: footer
+            footer_tags_show:
+                order: 3005
+                label: 'Show this Widget'
+                hint: 'Check this box to include this widget in the footer.'
+                type: checkbox
+                default: 1
+                tag: FooterWidgetTagsShow
+                fieldset: footer
+            footer_tags_headline:
+                order: 3010
+                label: 'Widget Headline'
+                hint: 'Headline text for this widget'
+                type: text
+                default: 'Tags'
+                tag: FooterWidgetTagsHeadline
+                fieldset: footer
+            footer_tags_lastn:
+                order: 3020
+                label: 'Number of Recent Entries'
+                hint: 'Enter the number of recent entries to determine the list of popular tags. For example, choose the top tags from the past 25 entries to show tags that are currently popular. This feature requires the Popular Tags plugin.'
+                type: text
+                default: 100
+                tag: FooterWidgetTagsLastn
+                fieldset: footer
+            footer_tags_total:
+                order: 3030
+                label: 'Number of Tags'
+                hint: 'Up to this number of top tags will be included in widget.'
+                type: text
+                default: 10
+                tag: FooterWidgetTagsTotal
+                fieldset: footer
+            footer_links:
+                order: 13000
+                label: 'Links Widget'
+                hint: 'A widget listing a small number of links (can be internal or external links).'
+                type: separator
+                fieldset: footer
+            footer_links_show:
+                order: 13005
+                label: 'Show this Widget'
+                hint: 'Check this box to include this widget in the footer.'
+                type: checkbox
+                default: 1
+                tag: FooterWidgetLinksShow
+                fieldset: footer
+            footer_links_headline:
+                order: 13010
+                label: 'Widget Headline'
+                hint: 'Headline text for this widget'
+                type: text
+                default: 'Links'
+                tag: FooterWidgetLinksHeadline
+                fieldset: footer
+            footer_links_list:
+                order: 13020
+                label: 'Links List'
+                hint: 'Enter links to be displayed in this widget.'
+                type: link-group
+                tag: FooterWidgetLinksList
+                fieldset: footer
             home_page_lastn:
                 order: 1000
                 label: 'Number of Entries'
@@ -629,7 +732,7 @@ template_sets:
                 label: 'Archive Index'
                 hint: 'Show Hero Unit on the Archives listing page.'
                 type: checkbox
-                tag: HeroUnitEnableHomeArchivesIndex
+                tag: HeroUnitEnableArchivesIndex
                 fieldset: hero_unit
             hero_unit_enable_categories:
                 order: 1054
@@ -850,6 +953,12 @@ template_sets:
                     label: 'Sidebar - Top Tags'
                 w_sidebar_links:
                     label: 'Sidebar - Links'
+                w_footer_recent:
+                    label: 'Footer - Recent Entries'
+                w_footer_tags:
+                    label: 'Footer - Top Tags'
+                w_footer_links:
+                    label: 'Footer - Links'
                 w_main_recent_entries:
                     label: 'Main - Recent Entries'
                 w_entry_summary:
@@ -862,13 +971,20 @@ template_sets:
                         - 'Sidebar - Recent Entries'
                         - 'Sidebar - Top Tags'
                         - 'Sidebar - Links'
-                main_home_widgetset:
+                footer_widgetset:
                     order: 2
+                    label: 'Footer'
+                    widgets:
+                        - 'Footer - Recent Entries'
+                        - 'Footer - Top Tags'
+                        - 'Footer - Links'
+                main_home_widgetset:
+                    order: 3
                     label: 'Main - Home Page'
                     widgets:
                         - 'Main - Recent Entries'
                 entry_summary_widgetset:
-                    order: 3
+                    order: 4
                     label: 'Entry Summary'
                     widgets:
                         - 'Entry Summary'

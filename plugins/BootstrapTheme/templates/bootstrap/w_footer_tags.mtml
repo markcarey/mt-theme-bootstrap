@@ -1,0 +1,38 @@
+<mt:If tag="FooterWidgetTagsShow">
+	<!-- Tags Widget -->
+	<mt:FooterWidgetTagsLastn setvar="tags_lastn">
+	<mt:FooterWidgetTagsTotal setvar="tags_total">
+	
+	<mt:IfAvailable plugin_id="recenttags">
+	
+    	<mt:PopularTags lastn="$tags_lastn" top="$tags_total">
+    		<mt:If name="__first__">
+                <div id="footer-tags" class="widget span3">
+    			    <h3><mt:FooterWidgetTagsHeadline></h3>
+                    <div class="tagcloud">
+    		</mt:If>
+    	                <a href="<mt:TagSearchLink tag_dir="tag">" class="rank-<mt:TagRank max="10">"><mt:TagName></a>
+    		<mt:If name="__last__">
+    			    </div>
+                </div>
+    		</mt:If>
+    	</mt:PopularTags>
+	
+	<mt:Else>
+	
+	    <mt:Tags top="$tags_total">
+    		<mt:If name="__first__">
+                <div id="sidebar-tags" class="widget span3">
+    			    <h3><mt:FooterWidgetTagsHeadline></h3>
+                    <div class="tagcloud">
+    		</mt:If>
+    	                <a href="<mt:TagSearchLink tag_dir="tag">" class="rank-<mt:TagRank max="10">"><mt:TagName></a>
+    		<mt:If name="__last__">
+    			    </div>
+                </div>
+    		</mt:If>
+    	</mt:Tags>
+	
+	</mt:IfAvailable>
+	
+</mt:If>
